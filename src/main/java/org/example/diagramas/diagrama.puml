@@ -1,0 +1,121 @@
+@startuml
+' ================================
+' Módulo: Cronómetro Cósmico
+' ================================
+package "Cronómetro Cósmico" {
+  class CronometroCosmico {
+    - tiempoTierra: long
+    - tiempoPlaneta: long
+    - conversionFactor: float
+    - limitesRepresentacion: Map<String, Long>
+    + convertirTiempo(t: long): long
+    + mostrarTiempo(): String
+    + verificarLimites(t: long): boolean
+  }
+  class ConversionException
+}
+
+CronometroCosmico ..> ConversionException : lanza
+
+' ================================
+' Módulo: Recursos y Suministros
+' ================================
+package "Recursos y Suministros" {
+  class RecursosSuministros {
+    - consumoAgua: float
+    - consumoComida: float
+    - consumoOxigeno: float
+    - umbralSeguro: float
+    + calcularConsumo(intervalo: int): float
+    + calcularEstadisticas(datos: List<float>): Map<String, float>
+    + activarAlerta(): void
+  }
+  class ResourceException
+}
+
+RecursosSuministros ..> ResourceException : lanza
+
+' ================================
+' Módulo: Sistema de Alerta y Monitoreo
+' ================================
+package "Sistema de Alerta y Monitoreo" {
+  class SistemaAlertaMonitoreo {
+    - nivelRadiacion: float
+    - temperatura: float
+    - presion: float
+    - eventosCriticos: List<String>
+    + monitorear(): void
+    + detectarEventos(): List<int>
+    + notificar(evento: String): void
+    + descomponerProblema(valor: int): List<int>
+  }
+  class MonitorException
+}
+
+SistemaAlertaMonitoreo ..> MonitorException : lanza
+
+' ================================
+' Módulo: Planificador de Tareas
+' ================================
+package "Planificador de Tareas" {
+  class PlanificadorTareas {
+    - listaTareas: List<String>
+    - cargaTrabajo: Map<String, int>
+    - miembrosTripulacion: List<String>
+    + asignarTareas(): void
+    + calcularCargaTrabajo(): int
+    + mostrarTablaTareas(): void
+  }
+  class TareaException
+}
+
+PlanificadorTareas ..> TareaException : lanza
+
+' ================================
+' Módulo: Navegador Estelar
+' ================================
+package "Navegador Estelar" {
+  class NavegadorEstelar {
+    - matrizTerreno: int[][]
+    - rutas: List<String>
+    - obstaculos: List<String>
+    + planificarRuta(inicio: Point, fin: Point): List<Point>
+    + simularTerreno(): void
+    + multiplicarMatrices(m1: int[][], m2: int[][]): int[][]
+  }
+  class NavegadorException
+}
+
+NavegadorEstelar ..> NavegadorException : lanza
+
+' ================================
+' Módulo: Comunicador Interplanetario
+' ================================
+package "Comunicador Interplanetario" {
+  class ComunicadorInterplanetario {
+    - mensajes: List<String>
+    - traducciones: Map<String, String>
+    - codigoIntegridad: boolean
+    + analizarMensaje(mensaje: String): Map<String, int>
+    + contarVocales(mensaje: String): int
+    + invertirMensaje(mensaje: String): String
+    + verificarPalindromo(mensaje: String): boolean
+  }
+  class MensajeException
+}
+
+ComunicadorInterplanetario ..> MensajeException : lanza
+
+' ================================
+' Pruebas Unitarias (JUnit 5)
+' ================================
+package "Pruebas Unitarias" {
+  class TestCronometroCosmico
+  class TestRecursosSuministros
+  class TestSistemaAlertaMonitoreo
+  class TestPlanificadorTareas
+  class TestNavegadorEstelar
+  class TestComunicadorInterplanetario
+}
+
+@enduml
