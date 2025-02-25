@@ -1,3 +1,6 @@
+#Preguntas de chat
+## https://chatgpt.com/share/67bdb861-fe34-8004-b355-a10786c90d1a
+
 Caso Final Integrador: Misión Espacial Cronos
 Contexto: Los alumnos son parte de un equipo de científicos y programadores en una misión espacial llamada "Cronos". La misión tiene como objetivo establecer una base en un nuevo planeta. Los estudiantes deben desarrollar un sistema de software integral que asista en la planificación, establecimiento, y mantenimiento de la base. Este sistema debe ser capaz de manejar tiempos precisos, calcular recursos, comunicarse con la Tierra, y asegurar la supervivencia y eficiencia de la base.
 Descripción del Proyecto: El software desarrollado deberá integrar los siguientes módulos basados en los ejercicios propuestos:
