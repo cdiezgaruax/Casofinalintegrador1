@@ -1,4 +1,4 @@
-#Preguntas de chat
+# Preguntas de chat
 ## https://chatgpt.com/share/67bdb861-fe34-8004-b355-a10786c90d1a
 
 Caso Final Integrador: Misión Espacial Cronos
