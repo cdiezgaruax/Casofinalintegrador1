@@ -1,5 +1,5 @@
-package org.example.excepciones;
-// File: src/main/java/org/example/ConversionException.java
+package org.misioncronos.excepciones;
+
 public class ConversionException extends Exception {
     public ConversionException(String message) {
         super(message);
