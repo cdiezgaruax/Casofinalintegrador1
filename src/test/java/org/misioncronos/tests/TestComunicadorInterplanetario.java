@@ -10,7 +10,7 @@ public class TestComunicadorInterplanetario {
     @Test
     public void testContarVocales() {
         ComunicadorInterplanetario ci = new ComunicadorInterplanetario();
-        assertEquals(5, ci.contarVocales("Hola Mundo"), "Hola Mundo tiene 5 vocales");
+        assertEquals(4, ci.contarVocales("Hola Mundo"), "Hola Mundo tiene 5 vocales");
     }
 
     @Test

@@ -33,13 +33,38 @@ public class CronometroCosmico {
      * @throws ConversionException si hay overflow o underflow.
      */
     public long convertirTiempo(long tiempo) throws ConversionException {
-        long convertido = (long) (tiempo * conversionFactor);
-        if (!verificarLimites(convertido)) {
-            throw new ConversionException("Overflow en la conversión de tiempo.");
+        // Comprobación previa basada en el factor de conversión.
+        if (conversionFactor > 0 && tiempo >= (long)(Long.MAX_VALUE / conversionFactor) + 1) {
+            throw new ConversionException("Overflow en la conversión de tiempo (previo al cálculo).");
         }
+        if (conversionFactor < 0 && tiempo <= (long)(Long.MIN_VALUE / conversionFactor) - 1) {
+            throw new ConversionException("Underflow en la conversión de tiempo (previo al cálculo).");
+        }
+
+        // Calcula el resultado en double.
+        double resultadoDouble = tiempo * conversionFactor;
+
+        // Comprueba si el resultado excede el rango representable por long.
+        // (Long.MAX_VALUE es 9223372036854775807, así que si el resultado es mayor o igual a 9223372036854775808.0,
+        // se considera overflow.)
+        if (resultadoDouble >= ((double) Long.MAX_VALUE) + 1.0 ||
+                resultadoDouble <= ((double) Long.MIN_VALUE) - 1.0) {
+            throw new ConversionException("Overflow en la conversión de tiempo (resultado fuera de rango).");
+        }
+
+        // Convierte a long.
+        long convertido = (long) resultadoDouble;
+
+        // Verifica que el valor convertido esté dentro de los límites.
+        if (!verificarLimites(convertido)) {
+            throw new ConversionException("Overflow en la conversión de tiempo (verificación final).");
+        }
+
         this.tiempoPlaneta = convertido;
         return convertido;
     }
+
+
 
     public String mostrarTiempo() {
         return "Tiempo Tierra: " + tiempoTierra + " seg, "
